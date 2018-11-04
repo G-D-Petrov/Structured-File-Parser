@@ -11,12 +11,12 @@ This application is written in C++11.
 The input for the program must be a .sf file. This file must be formated in the following way. 
 
 1. The first line must specify the data type in the structure, separated by "pipes"(|).
-..* Example: int|float|char|float
-..* If this line is not present or the format is not correct the program will terminate with and error.
+* Example: int|float|char|float
+* If this line is not present or the format is not correct the program will terminate with and error.
 1. Every other line must contain data of the specified type, separated by a "pipe".
-..* Example: 242|42.0|g|22
-..* A "pipe" **cannot** be a character in the data.
-..* If a line is not in the correct format, the program print an error with number of the incorrect line and the line will be skipped.
+* Example: 242|42.0|g|22
+* A "pipe" **cannot** be a character in the data.
+* If a line is not in the correct format, the program print an error with number of the incorrect line and the line will be skipped.
 
 ## Using the program
 

@@ -48,9 +48,36 @@ Options InitialMenu()
 void RunUnitTests()
 {
 	cout << "Running tests" << endl;
+	Parser parser("test.sf");
 }
 
-DataList HandleFile()
+void OperateOnList(Parser &parser, std::shared_ptr<DataList> list)
+{
+	cout << "Hello, please select an action:" << endl;
+	cout << "Press 1 to add an item." << endl;
+	cout << "Press 2 to remove an item." << endl;
+	cout << "Press 3 to save." << endl;
+	int input = 0;
+	cin.clear();
+	cin >> input;
+
+	switch (input)
+	{
+	case 1:
+		list->AddElementAtIndex(2, std::vector<std::string>(list->TypesCount()));
+		break;
+	case 2:
+		list->RemoveAtIndex(2);
+		break;
+	case 3:
+		parser.Save(list, "new_test.sf");
+		break;
+	default:
+		break;
+	}
+}
+
+void HandleFile()
 {
 	string filepath;
 	cout << "Please enter a path to a valid file:" << endl;
@@ -60,7 +87,9 @@ DataList HandleFile()
 	// TODO: Validate filepath
 	Parser parser(filepath);
 	
-	return parser.Parse();
+	auto list = parser.Parse();
+
+	OperateOnList(parser, list);
 }
 
 void HandleUserOption(const Options userOption)

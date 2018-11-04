@@ -13,7 +13,7 @@ Parser::~Parser()
 {
 }
 
-DataList& Parser::Parse()
+std::shared_ptr<DataList> Parser::Parse()
 {
 	std::ifstream file(filePath);
 
@@ -21,14 +21,24 @@ DataList& Parser::Parse()
 	std::getline(file, line);
 
 	// TODO: Add validation for the formatLine
-	DataList dataList(Split(line));
+	auto dataList = std::make_shared<DataList>(Split(line));
 
 	while (std::getline(file, line))
 	{
-		dataList.AddElement(Split(line));
+		dataList->AddElement(Split(line));
 	}
 
 	return dataList;
+}
+
+void Parser::Save(std::shared_ptr<DataList> list, const std::string &fileName)
+{
+	std::ofstream file(fileName);
+	
+	if (list->IsValid())
+	{
+		file << list;
+	}
 }
 
 std::vector<std::string> Parser::Split(std::string strToSplit, char delimeter)

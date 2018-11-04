@@ -1,0 +1,5 @@
+﻿  Parser.cpp
+  main.cpp
+  Generating Code...
+c:\users\george\desktop\nbu\term1\psp\structured-file-parser\sfpsourcespace\sfpsourcespace\parser.cpp(31): warning C4172: returning address of local variable or temporary: dataList
+  SFPSourceSpace.vcxproj -> C:\Users\George\Desktop\NBU\Term1\PSP\Structured-File-Parser\SFPSourceSpace\Debug\SFPSourceSpace.exe
